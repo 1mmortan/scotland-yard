@@ -681,7 +681,8 @@ and test it out!
 
 ## Have your AI interact on remote server with other players
 
-![alt text](remote_ai.png "Remote AI in package structure")
+![image](https://github.com/1mmortan/scotland-yard/assets/162394808/000568e3-a48e-4c98-8f6b-c10d1b08db4e)
+
 
 ## Extensions
 
