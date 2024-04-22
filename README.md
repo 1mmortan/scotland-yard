@@ -184,7 +184,8 @@ otherwise the GUI won't start of course.
 The *Find node* tool is located in the menu: `Help | Find node`, you should see a window that looks
 like this:
 
-![alt text](find_node.png "Find node tool screenshot")
+![image](https://github.com/1mmortan/scotland-yard/assets/162394808/d9c4dc05-c5e3-4dba-b0a7-0bee716b29a8)
+
 
 Type in the node you want to find in the search bar, you may enter multiple nodes separated by
 spaces, e.g `42 42 44 45`. The map supports panning and zooming just like the main game.
