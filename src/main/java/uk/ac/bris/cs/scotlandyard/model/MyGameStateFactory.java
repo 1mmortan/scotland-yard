@@ -21,5 +21,4 @@ public final class MyGameStateFactory implements Factory<GameState> {
 		throw new RuntimeException("Implement me!");
 
 	}
-
 }
