@@ -2,16 +2,14 @@ package uk.ac.bris.cs.scotlandyard.model;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
+import uk.ac.bris.cs.scotlandyard.model.Board.GameState;
+import uk.ac.bris.cs.scotlandyard.model.ScotlandYard.Factory;
+import uk.ac.bris.cs.scotlandyard.model.ScotlandYard.Ticket;
 
-
+import javax.annotation.Nonnull;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import javax.annotation.Nonnull;
-
-import uk.ac.bris.cs.scotlandyard.model.Board.GameState;
-import uk.ac.bris.cs.scotlandyard.model.Piece.*;
-import uk.ac.bris.cs.scotlandyard.model.ScotlandYard.*;
 
 public final class MyGameStateFactory implements Factory<GameState> {
 	private static final class MyGameState implements GameState {
@@ -36,7 +34,6 @@ public final class MyGameStateFactory implements Factory<GameState> {
 			this.mrX = mrX;
 			this.detectives = detectives;
 
-			// Validation checks for MrX and detectives
 			if (mrX.isDetective()) throw new IllegalArgumentException("MrX cannot be a detective");
 			if (detectives.isEmpty()) throw new IllegalArgumentException("There must be at least one detective");
 
@@ -194,7 +191,6 @@ public final class MyGameStateFactory implements Factory<GameState> {
 			return singleMoves;
 		}
 
-		// Helper method to generate double moves for Mr. X
 		private static Set<Move.DoubleMove> makeDoubleMoves(GameSetup setup, List<Player> detectives, Player player, int source) {
 			Set<Move.DoubleMove> doubleMoves = new HashSet<>();
 
@@ -408,13 +404,10 @@ public final class MyGameStateFactory implements Factory<GameState> {
 			GameSetup setup,
 			Player mrX,
 			ImmutableList<Player> detectives) {
-		// Check if the graph is empty and throw an exception if it is
 		if (setup.graph.nodes().isEmpty()) {
 			throw new IllegalArgumentException("Graph cannot be empty");
 		}
 
-		// Constructs a new game state with the given setup, MrX, and detectives
-		// Correctly initialize the remaining set to include Mr. X and detectives
 		ImmutableSet<Piece> remainingPieces = Stream.concat(
 				Stream.of(mrX.piece()),
 				detectives.stream().map(Player::piece)
